@@ -1,0 +1,39 @@
+  <head>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   
+        </head>
+        <div class="row">
+  <div class="col-md-12">
+    <br>
+    <h2>Add Student</h2>
+    <hr />
+    <form action="/students/add" method="post">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input class="form-control" id="firstName" name="firstName" type="text" required />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input class="form-control" id="lastName" name="lastName" type="text" required />
+      </div>
+      <div class="form-group">
+        <label for="course">Course</label>
+        {{#if courses}}
+          <select class="form-control" name="course" id="course">
+            <option value="">Select Course</option>
+            {{#each courses}}
+              <option value="{{courseId}}">{{courseCode}}</option>
+            {{/each}}
+          </select>
+        {{else}}
+          <div>No Courses</div>
+        {{/if}}
+      </div>
+      <div class="form-group form-check">
+        <input class="form-check-input" type="checkbox" id="TA" name="TA">
+        <label class="form-check-label" for="TA">Teaching Assistant</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Student</button>
+    </form>
+  </div>
+</div>
